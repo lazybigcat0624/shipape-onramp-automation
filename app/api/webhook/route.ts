@@ -131,6 +131,7 @@ function transformToOnRampFormat(elfsightData: ElfsightFormData): OnRampApplicat
 
   return {
     seller_email: getValue("Email *") || '',
+    business_name: getValue("Company Name") || '',
     contact_first_name: getValue("First Name") || '',
     contact_last_name: getValue("Last Name") || '',
     contact_phone_number: extractPhoneNumber(getValue("Phone")),
