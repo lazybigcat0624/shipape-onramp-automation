@@ -1,3 +1,5 @@
+import React from 'react';
+
 export const metadata = {
   title: 'Webhook Handler',
   description: 'Elfsight webhook handler for OnRamp API',
