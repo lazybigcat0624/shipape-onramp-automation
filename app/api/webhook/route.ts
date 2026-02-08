@@ -201,14 +201,16 @@ async function submitToOnRamp(applicationData: OnRampApplicationData): Promise<a
     },
     body: JSON.stringify(applicationData),
   });
-  console.log('OnRamp API referral:', await response.json());
+
+  const responseData = await response.json();
+  console.log('OnRamp API referral response:', JSON.stringify(responseData, null, 2));
+  
   if (!response.ok) {
-    const errorText = await response.text();
-    console.error('OnRamp API error:', errorText);
-    throw new Error(`OnRamp API error: ${response.status} ${errorText}`);
+    console.error('OnRamp API error:', responseData);
+    throw new Error(`OnRamp API error: ${response.status} ${JSON.stringify(responseData)}`);
   }
 
-  return await response.json();
+  return responseData;
 }
 
 export async function POST(request: NextRequest) {
